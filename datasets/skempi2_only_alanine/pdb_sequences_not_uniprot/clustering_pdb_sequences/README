@@ -1,0 +1,49 @@
+
+
+user@itadmin-Vostro-430:~/DL_Hotspot/dataset_060523/skempi2_only_alanine/pdb_sequences_not_uniprot/clustering_pdb_sequences$ awk -F"," '{print ">"$1"\n"$2}' ../skempi2_nullspots_all_pdb_sequences > skempi2_nullspots_all_pdb_sequences.fasta
+
+
+
+
+# -n : word length
+# -l : length of throw-away sequences
+# -c : clutering seq. identity threshold
+user@itadmin-Vostro-430:~/DL_Hotspot/dataset_060523/skempi2_only_alanine/pdb_sequences_not_uniprot/clustering_pdb_sequences$ cd-hit -i skempi2_nullspots_all_pdb_sequences.fasta  -o cd_hit_skempi2_nullspots_all_pdb_sequences -c 0.6 -l 50 -n 4
+================================================================
+Program: CD-HIT, V4.8.1 (+OpenMP), Aug 20 2021, 08:39:56
+Command: cd-hit -i skempi2_nullspots_all_pdb_sequences.fasta
+         -o cd_hit_skempi2_nullspots_all_pdb_sequences -c 0.6
+         -l 50 -n 4
+
+Started: Sat Sep  9 09:43:38 2023
+================================================================
+                            Output                              
+----------------------------------------------------------------
+total seq: 184
+longest and shortest : 1295 and 51
+Total letters: 41653
+Sequences have been sorted
+
+Approximated minimal memory consumption:
+Sequence        : 0M
+Buffer          : 1 X 10M = 10M
+Table           : 1 X 3M = 3M
+Miscellaneous   : 0M
+Total           : 13M
+
+Table limit with the given memory limit:
+Max number of representatives: 2289726
+Max number of word counting entries: 98256451
+
+comparing sequences from          0  to        184
+
+      184  finished        112  clusters
+
+Approximated maximum memory consumption: 14M
+writing new database
+writing clustering information
+program completed !
+
+Total CPU time 0.01
+
+

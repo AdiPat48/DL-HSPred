@@ -1,0 +1,24 @@
+
+
+ppi_bench_web.csv : Copied from web version ()
+ppi_bench.xlsx : Downloaded from 'https://ppihotspot.limlab.dnsalias.org/scripts/ppi_bench.xlsx' 
+ppi.xlsx : Downloaded from 'https://ppihotspot.limlab.dnsalias.org/scripts/ppi.xlsx'
+
+
+ppi_bench.csv : Taken from "ppi_bench.xlsx "
+ppi_uniprot.csv : Taken from "ppi.xlsx"
+
+
+ppi_uniprot_uniprotids : Created by - " user@itadmin-Vostro-430:~/DL_Hotspot/dataset_060523/PPI_hotspotdb$ cat ppi_uniprot.csv | cut -f 1 | sort -u | grep -v uniprot > ppi_uniprot_uniprotids"
+
+ppi_bench_uniprotids  : Created by - "user@itadmin-Vostro-430:~/DL_Hotspot/dataset_060523/PPI_hotspotdb$ cat ppi_bench.csv | cut -f 1 | sort -u | grep -v uniprot  > ppi_bench_uniprotids" 
+
+ppi_uniprot_all_sequences : Created by - "user@itadmin-Vostro-430:~/DL_Hotspot/dataset_060523/PPI_hotspotdb$ bash get_sequences.sh "
+
+ppi_bench_only_alanine_hotspots :  Created by - "user@itadmin-Vostro-430:~/DL_Hotspot/dataset_060523/PPI_hotspotdb$ cat ppi_bench.csv | awk '{if($4=="A") print $1"_"$3"_"$2}' > ppi_bench_only_alanine_hotspots"
+
+#Checking whether all hotspot residues in the dataset map to same residue in uniprot sequence
+user@itadmin-Vostro-430:~/DL_Hotspot/dataset_060523/PPI_hotspotdb$ for hs in $(<ppi_bench_only_alanine_hotspots); do python3 manual_check.py $hs ; done
+* Check went perfectly, no mapping errors
+
+input_hs_dataset.csv: Created by - "user@itadmin-Vostro-430:~/DL_Hotspot/dataset_060523/PPI_hotspotdb$ python3 data_processing.py"

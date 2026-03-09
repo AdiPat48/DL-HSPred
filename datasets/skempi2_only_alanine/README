@@ -1,0 +1,24 @@
+user@itadmin-Vostro-430:~/DL_Hotspot/dataset_060523/skempi2$ python3 get_hotspot_skempi2.py >hs_ns_ddg_skempi2_only_alanine
+
+user@itadmin-Vostro-430:~/DL_Hotspot/dataset_060523/skempi2_only_alanine$ cat skempi2_ns_only_alanine.txt | awk -F"_" '{print $1","}' | sort -u  |sed ':a;N;$!ba;s/\n/ /g' 
+1A22, 1A4Y, 1AHW, 1AK4, 1AO7, 1BD2, 1BJ1, 1BP3, 1BRS, 1C1Y, 1C4Z, 1CBW, 1CHO, 1DAN, 1DQJ, 1DVF, 1E50, 1EAW, 1EMV, 1F47, 1FC2, 1FCC, 1FFW, 1GC1, 1GCQ, 1GUA, 1H9D, 1IAR, 1JRH, 1JTD, 1JTG, 1K8R, 1KTZ, 1LFD, 1LP9, 1MHP, 1MI5, 1MLC, 1OGA, 1PPF, 1R0R, 1S1Q, 1UUZ, 1VFB, 1WQJ, 1XD3, 1YY9, 1Z7X, 2AJF, 2AK4, 2B0U, 2BNR, 2BTF, 2C5D, 2DVW, 2G2U, 2HRK, 2J1K, 2JEL, 2NYY, 2NZ9, 2PCC, 2SIC, 2WPT, 3BK3, 3BN9, 3BP8, 3BT1, 3BX1, 3C60, 3EQS, 3EQY, 3F1S, 3G6D, 3HFM, 3HH2, 3KBH, 3M62, 3M63, 3MZG, 3N85, 3NGB, 3NPS, 3Q8D, 3QHY, 3QIB, 3S9D, 3SE3, 3SE4, 3SE8, 3SE9, 3SGB, 3SZK, 3UIG, 3UII, 3VR6, 4B0M, 4E6K, 4FTV, 4FZA, 4G0N, 4HFK, 4HRN, 4I77, 4J2L, 4JEU, 4K71, 4KRL, 4L3E, 4N8V, 4NKQ, 4NZW, 4O27, 4OFY, 4OZG, 4P23, 4P5T, 4PWX, 4RS1, 4U6H, 4X4M, 4Y61, 4YFD, 4ZS6, 5C6T, 5CXB, 5E6P, 5F4E, 5K39, 5M2O, 5TAR, 5XCO,
+
+# Getting uniprot ids from pdb
+QUERY: Entry ID(s) IS ANY OF (1A22, 1A4Y, 1AHW, 1AK4, 1AO7, 1BD2, 1BJ1, 1BP3, 1BRS, 1C1Y, 1C4Z, 1CBW, 1CHO, 1DAN, 1DQJ, 1DVF, 1E50, 1EAW, 1EMV, 1F47, 1FC2, 1FCC, 1FFW, 1GC1, 1GCQ, 1GUA, 1H9D, 1IAR, 1JRH, 1JTD, 1JTG, 1K8R, 1KTZ, 1LFD, 1LP9, 1MHP, 1MI5, 1MLC, 1OGA, 1PPF, 1R0R, 1S1Q, 1UUZ, 1VFB, 1WQJ, 1XD3, 1YY9, 1Z7X, 2AJF, 2AK4, 2B0U, 2BNR, 2BTF, 2C5D, 2DVW, 2G2U, 2HRK, 2J1K, 2JEL, 2NYY, 2NZ9, 2PCC, 2SIC, 2WPT, 3BK3, 3BN9, 3BP8, 3BT1, 3BX1, 3C60, 3EQS, 3EQY, 3F1S, 3G6D, 3HFM, 3HH2, 3KBH, 3M62, 3M63, 3MZG, 3N85, 3NGB, 3NPS, 3Q8D, 3QHY, 3QIB, 3S9D, 3SE3, 3SE4, 3SE8, 3SE9, 3SGB, 3SZK, 3UIG, 3UII, 3VR6, 4B0M, 4E6K, 4FTV, 4FZA, 4G0N, 4HFK, 4HRN, 4I77, 4J2L, 4JEU, 4K71, 4KRL, 4L3E, 4N8V, 4NKQ, 4NZW, 4O27, 4OFY, 4OZG, 4P23, 4P5T, 4PWX, 4RS1, 4U6H, 4X4M, 4Y61, 4YFD, 4ZS6, 5C6T, 5CXB, 5E6P, 5F4E, 5K39, 5M2O, 5TAR, 5XCO)
+Downloaded output file : rcsb_pdb_sequence_20230907051234.csv
+# ! This file had to be edited to remove rows with no chain information 
+
+user@itadmin-Vostro-430:~/DL_Hotspot/dataset_060523/skempi2_only_alanine$ cat skempi2_ns_only_alanine.txt | awk -F"_" '{print $1"_"$2}' | sort -u > pdb_chain_skempi2_nullspots_only_alanine
+
+user@itadmin-Vostro-430:~/DL_Hotspot/dataset_060523/skempi2_only_alanine$ python3 get_uniprot_sequences.py
+
+user@itadmin-Vostro-430:~/DL_Hotspot/dataset_060523/skempi2_only_alanine$ awk -F"," '{print ">"$1"\n"$2}' skempi2_nullspots_all_sequences >skempi2_nullspots_all_sequences.fasta
+
+
+################################################################
+# Manually Checked that all nullspots match with corresponding residue number in PDB, using biopython 
+user@itadmin-Vostro-430:~/DL_Hotspot/dataset_060523/skempi2_only_alanine$ for x in $(<skempi2_ns_only_alanine.txt); do python3 manual_check.py $x ; done
+
+################################################################
+# 
+input_ns_dataset.csv: Created by "user@itadmin-Vostro-430:~/DL_Hotspot/dataset_060523/skempi2_only_alanine$ python3 data_processing.py "
