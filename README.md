@@ -2,7 +2,7 @@
 
 ### Sequence-Only Deep Learning for Protein-Protein Interaction Hotspot Prediction
 
-**DeepHotspot-Seq** is a computational tool designed to identify Protein-Protein Interaction (PPI) hotspots—critical residues contributing significantly to binding free energy—using only primary sequence information. By leveraging high-dimensional embeddings from pre-trained protein language models (**ProteinBERT**), this model bypasses the traditional requirement for experimental 3D structures, making hotspot prediction accessible for proteins with unknown folds.
+**DeepHotspot-Seq** is a computational tool designed to identify Protein-Protein Interaction (PPI) hotspots—critical residues contributing significantly to binding free energy—using only primary sequence information. By leveraging high-dimensional embeddings from pre-trained protein language models (**[ProteinBERT](https://github.com/nadavbra/protein_bert)**), this model bypasses the traditional requirement for experimental 3D structures, making hotspot prediction accessible for proteins with unknown folds.
 
 ---
 
@@ -78,3 +78,7 @@ The final production model is a 5-layer Multi-Layer Perceptron (MLP):
 * ProteinBERT
 * Scikit-learn
 * UMAP-learn / Matplotlib
+
+## References
+* Anshul Sukhwal, Ramanathan Sowdhamini, Oligomerisation status and evolutionary conservation of interfaces of protein structural domain superfamilies, Molecular BioSystems(MBS), Volume 9, Issue 7, 1 July 2013, Pages 1652–1661, https://doi.org/10.1039/C3MB25484D
+* Nadav Brandes, Dan Ofer, Yam Peleg, Nadav Rappoport, Michal Linial, ProteinBERT: a universal deep-learning model of protein sequence and function, Bioinformatics, Volume 38, Issue 8, March 2022, Pages 2102–2110, https://doi.org/10.1093/bioinformatics/btac020
