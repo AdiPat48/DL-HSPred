@@ -82,3 +82,7 @@ The final production model is a 5-layer Multi-Layer Perceptron (MLP):
 ## References
 * Anshul Sukhwal, Ramanathan Sowdhamini, Oligomerisation status and evolutionary conservation of interfaces of protein structural domain superfamilies, Molecular BioSystems(MBS), Volume 9, Issue 7, 1 July 2013, Pages 1652–1661, https://doi.org/10.1039/C3MB25484D
 * Nadav Brandes, Dan Ofer, Yam Peleg, Nadav Rappoport, Michal Linial, ProteinBERT: a universal deep-learning model of protein sequence and function, Bioinformatics, Volume 38, Issue 8, March 2022, Pages 2102–2110, https://doi.org/10.1093/bioinformatics/btac020
+
+## Authors
+* Aditi Pathak
+* Vikas Tiwari
