@@ -18,7 +18,7 @@ Predicting hotspots from sequence alone is a significant challenge due to the la
 
 ---
 
-## 🛠 Methodology: The Consensus Strategy
+## 🛠 The Consensus Strategy
 
 To ensure the model learns from structure-guided hotspot data, labels were derived from a strict intersection logic:
 
