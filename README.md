@@ -6,7 +6,7 @@
 
 ---
 
-## 🚀 Project Overview
+## Project Overview
 
 Predicting hotspots from sequence alone is a significant challenge due to the lack of explicit spatial context. This project addresses this by:
 
@@ -18,7 +18,7 @@ Predicting hotspots from sequence alone is a significant challenge due to the la
 
 ---
 
-## 🛠 The Consensus Strategy
+## The Consensus Strategy
 
 To ensure the model learns from structure-guided hotspot data, labels were derived from a strict intersection logic:
 
@@ -50,17 +50,12 @@ The custom Neural Network was benchmarked against 10 baseline classifiers:
 | **MLP (Deep Learning)** | **0.81** | **0.70** |
 | **Random Forest** | 0.66 | 0.58 |
 
-### Independent Validation (BID Dataset)
-
-When tested on the independent **BID (2018)** dataset, the model demonstrated robust "greedy" identification of hotspots:
-
-* **Recall**: 91% (Captured the vast majority of true hotspots).
-* **F1-Score**: 58.1%.
-* **Accuracy**: 46%.
+### Independent Validation 
+When tested on the independent **BID (2018)** dataset. For more details about the performance across models, please see [DeepHotspot-Seq_results.pdf](DeepHotspot-Seq_results.pdf)
 
 ---
 
-## ⚙️ Model Architecture
+## Model Architecture
 
 The final production model is a 5-layer Multi-Layer Perceptron (MLP):
 * **Input**: $(HS + NS) \times 1562$ features.
@@ -70,7 +65,7 @@ The final production model is a 5-layer Multi-Layer Perceptron (MLP):
 
 ---
 
-## 📝 Dependencies
+## Dependencies
 
 * Python 3.8+
 * TensorFlow / Keras
